@@ -3,13 +3,14 @@
 
 int main(int argv, char **argc)
 {
-
-  if(argv ==0){
+  int imax;
+  
+  if(argv <=1){
     printf("Enter input for maximum iteration\n");
     return -1;
+    //exit(-1);
   }
 
-  int imax;
   imax = atoi(argc[1]);
   
   int i=1;
