@@ -1,9 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#define name_max_limit 100
+
 struct Student{
 
   char *name;
+  char stdname[name_max_limit];
   int matrix;
   
 };
@@ -13,33 +16,43 @@ int main()
 
   struct Student unimap;
 
-  char *stname;
-  char *str0;
-
-  stname = "Muhammad Ali";
-
-  //printf("%s\n", stname);
-
-  unimap.name = stname;
-  unimap.matrix = 161110645;
-
-  str0 = unimap.name;
-  int number = unimap.matrix;
-
-  printf("%s\n", str0);
-  printf("%d\n", number);
-
-  char *str1;
+  char name[name_max_limit];
   
-  printf("Input a name:\n");
-  gets(str1);
+  printf("Enter a student name:\n");
+  fgets(name,name_max_limit,stdin);
+  printf("%s\n", name);
 
-  printf("%s\n", str1);
+  unimap.name = name;
 
-  /*
-  unimap.name = str1;
-  str0 = unimap.name;
-  printf("%s\n", str0);
-  */
+  char *newname;
+
+  newname = unimap.name;
+
+  printf("%s\n", newname);
+
+  int stdmax;
+  int matrix_number;
+  
+  printf("Create a student list\n");
+  printf("Enter number of students:\n");
+  scanf("%d", &stdmax);
+
+  struct Student *stdlist;
+  stdlist = (struct Student *)malloc(stdmax*sizeof(struct Student));
+
+  int i=0;
+  while(i<stdmax){
+    printf("Enter student name:\n");
+    scanf("%s", &stdlist[i].stdname);
+    printf("Enter matrix number:\n");
+    scanf("%d", &stdlist[i].matrix);
+    i +=1;
+  }
+
+  for(i=0; i<stdmax; ++i){
+    newname = stdlist[i].stdname;
+    matrix_number = stdlist[i].matrix;
+    printf("%s\t %d\n", newname, matrix_number);
+  }
   
 }
