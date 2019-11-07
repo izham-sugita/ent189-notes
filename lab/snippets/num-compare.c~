@@ -1,0 +1,12 @@
+#include<stdlib.h>
+#include<stdio.h>
+
+int main()
+{
+  float x, y, z;
+  printf("Enter 3 numbers:\n");
+  scanf("%f %f %f", &x, &y, &z);
+
+  
+  
+}
