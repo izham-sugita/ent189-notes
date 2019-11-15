@@ -8,6 +8,8 @@ void classification(float , int *, int *, int *);
 void classification2(float, int *, int *, int *,
                      int , int *, float *, int *, float *);
 
+void minmax(int,float,int *,float *, int *,float *,int);
+
 int main()
 {
 
@@ -17,11 +19,9 @@ int main()
     float pressure;
 
 int low, med, high;
-int idlow, idhigh;
-float pselectlow;
-float pselecthigh;
-int taglow;
-int taghigh;
+
+ int idmin,idmax;
+ float pmin, pmax;
 
     int counter = 0;
 
@@ -54,44 +54,8 @@ switch(ans){
 case 'y':
     inputdata(&id, &force, &surface, &counter);
     display(id,force,surface, &pressure);
-    //classification(pressure, &low, &med, &high);
-    classification2(pressure, &low, &med, &high,
-                     id, &taglow, &pselectlow, &taghigh, &pselecthigh);
-
-    //switching for high-low
-    printf("Current pressure : %f\n", pressure);
-    printf("Current tag : %d\n", id);
-    if(counter == 1 ){
-        prev_low_pressure = pselectlow;
-        prev_low_tag = taglow;
-
-        prev_high_pressure = pselectlow;
-        prev_high_tag = taglow;
-
-        printf("Current lowest pressure : %f\n", prev_low_pressure);
-        printf("Current lowest tag : %d\n", prev_low_tag);
-        printf("\n");
-
-        printf("Current highest pressure : %f\n", prev_high_pressure);
-        printf("Current highest tag : %d\n", prev_high_tag);
-
-    }else
-    {
-        if(pselectlow <=prev_low_pressure){
-            prev_low_pressure = pselectlow;
-            prev_low_tag = taglow;
-        }
-            printf("Current lowest pressure : %f\n", prev_low_pressure);
-            printf("Current lowest tag : %d\n", prev_low_tag);
-
-        if(pselecthigh >= prev_high_pressure){
-            prev_high_pressure = pselecthigh;
-            prev_high_tag = taghigh;
-        }
-            printf("Current highest pressure : %f\n", prev_high_pressure);
-            printf("Current highest tag : %d\n", prev_high_tag);
-
-    }
+    classification(pressure, &low, &med, &high);
+    minmax(id, pressure, &idmin,&pmin,&idmax,&pmax,counter);
 
 
 case 'n':
@@ -112,6 +76,10 @@ scanf(" %c", &ans);
 printf("Number of low pressure sample: %d\n", low);
 printf("Number of medium pressure sample: %d\n", med);
 printf("Number of high pressure sample: %d\n", high);
+
+ printf("\n");
+ printf("Sample ID with the highest pressure : %d in %f Pa\n", idmax,pmax);
+ printf("Sample ID with the lowest  pressure : %d in %f Pa\n", idmin,pmin);
 
     return 0;
 }

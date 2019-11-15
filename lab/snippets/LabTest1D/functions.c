@@ -77,4 +77,30 @@ if(pressure < 7.5){
 
 }
 
+void minmax(int id, float pressure,
+	    int *idmin, float *pmin,
+	    int *idmax, float *pmax,
+	    int counter)
+{
+  if(counter == 1){
+    *idmin = id;
+    *idmax = id;
+    *pmin = pressure;
+    *pmax = pressure;
+  }else{
 
+    if(*pmin > pressure){
+      *idmin = id;
+      *pmin = pressure;
+    }else if(*pmax < pressure){
+      *idmax = id;
+      *pmax = pressure;
+    }
+    
+  }
+
+  printf("ID for max. pressure: %d with %f Pa \n", *idmax, *pmax);
+  printf("ID for min. pressure: %d with %f Pa \n", *idmin, *pmin);
+  
+  
+}
