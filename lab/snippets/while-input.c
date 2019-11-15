@@ -19,5 +19,26 @@ int main()
 
  out:
   printf("Yatta!\n");
+
+  ans ='y';
+
+  while(ans !='n'){
+    printf("Enter yes or no (y/n) \n");
+    scanf(" %c", &ans); //add space to consume nextline
+  }
+
+  ans = 'y';
+  while(ans !='n'){
+    printf("Enter y or n?\n");
+    scanf("\n%c", &ans);
+  }
+
+  //using getchar();
+  ans ='y';
+  while( ans != 'n'){
+    printf("Enter a character");
+    ans = getchar();
+    getchar();
+  }
   
 }
