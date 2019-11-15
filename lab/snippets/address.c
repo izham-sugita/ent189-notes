@@ -50,6 +50,13 @@ int main()
   scanf("%[^\n]", myname);
   //scanf("%[^\n]%*c", myname);
   printf("Your name is %s\n", myname);
+
+  char *newname;
+
+  newname =(char *)malloc(20*sizeof(char) );
+  printf("Enter a new name:\n");
+  scanf("%s", newname);
+  printf("New name is %s.\n", newname);
   
   float *array;  
   int imax;
