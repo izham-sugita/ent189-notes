@@ -1,22 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void inputdata(int *, float *, float *, int *);
-void display(int, float, float, float *);
-void classification(float , int *, int *, int *);
+void inputdata1C(int *, float *, float *, int *);
+void display1C(int, float, float, float *);
 
-void classification2(float, int *, int *, int *,
-                     int , int *, float *, int *, float *);
+void classification1C(float , int *, int *, int *);
 
 void minmax(int,float,int *,float *, int *,float *,int);
 
 int main()
 {
 
-    int id;
-    float force;
-    float surface;
-    float pressure;
+    int vin;
+    float distance;
+    float timed;
+    float aveSpeed;
 
 int low, med, high;
 
@@ -25,14 +23,7 @@ int low, med, high;
 
     int counter = 0;
 
-    printf("Lab Test 1D.\n");
-/*
-printf("Testing section.... \n");
-    inputdata(&id, &force, &surface, &counter);
-    display(id,force,surface, &pressure);
-    classification(pressure, &low, &med, &high);
-printf("Testing end .... \n");
-*/
+    printf("Lab Test 1C.\n");
 
 /*Re-initiate counters*/
 low = 0;
@@ -52,10 +43,11 @@ while(ans !='n'){
 switch(ans){
 
 case 'y':
-    inputdata(&id, &force, &surface, &counter);
-    display(id,force,surface, &pressure);
-    classification(pressure, &low, &med, &high);
-    minmax(id, pressure, &idmin,&pmin,&idmax,&pmax,counter);
+    inputdata1C(&vin, &distance, &timed, &counter);
+    display1C(vin,distance,timed, &aveSpeed);
+          classification1C(aveSpeed, &low, &med, &high);
+
+    minmax(vin, aveSpeed, &idmin,&pmin,&idmax,&pmax,counter);
 
 
 case 'n':
@@ -73,13 +65,13 @@ scanf(" %c", &ans);
 
 }
 
-printf("Number of low pressure sample: %d\n", low);
-printf("Number of medium pressure sample: %d\n", med);
-printf("Number of high pressure sample: %d\n", high);
+printf("Number of slow speed sample: %d\n", low);
+printf("Number of normal speed sample: %d\n", med);
+printf("Number of high speed sample: %d\n", high);
 
  printf("\n");
- printf("Sample ID with the highest pressure : %d in %f Pa\n", idmax,pmax);
- printf("Sample ID with the lowest  pressure : %d in %f Pa\n", idmin,pmin);
+ printf("Sample vehicle ID with the highest speed : %d in %f km/h \n", idmax,pmax);
+ printf("Sample vehicle ID with the lowest  speed : %d in %f km/h \n", idmin,pmin);
 
     return 0;
 }
