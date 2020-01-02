@@ -1,5 +1,13 @@
 #include<stdio.h>
 
+void printnames(char test[])
+{
+  printf("This is inside printnames()\n");
+  printf("%s\n", test);
+  printf("Enter new name:\n");
+  scanf("%s", test);
+}
+
 int main()
 {
   char name[50], c;
@@ -16,5 +24,8 @@ int main()
   scanf("%s", name);
 
   printf("Name entered: %s\n", name);
+
+  printnames(name);
+  printf("%s\n", name);
   
 }
