@@ -1,0 +1,4 @@
+https://kamarada.github.io/en/2019/07/14/using-git-with-ssh-keys/#.X-lGWtYRXSA
+https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh
+https://github.com/settings/profile
