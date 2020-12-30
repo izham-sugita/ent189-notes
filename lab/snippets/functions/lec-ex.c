@@ -9,14 +9,15 @@ int main()
 {
 
   int code, qty;
-  float price;
+  float price, pay;
   
   menu();
   printf("Enter item's code and quantity\n");
   scanf("%d %d", &code, &qty);
   price = determine_price(code);
   printf("price = %f\n", price);
-  
+  pay = calc(price, qty);
+  print_result(pay);
 
   
 }
@@ -38,6 +39,21 @@ float determine_price(int a){
     pricing = 2.00; break;
   case 3:
     pricing = 5.00; break;
+  default:
+    break;
   }
   return (pricing);
+}
+
+float calc(float price,int qty){
+  float amnt;
+
+  //amnt = price *(float)qty;
+  amnt = price * qty;
+  return amnt;
+}
+
+void print_result(float a)
+{
+  printf("The total amount that you have to pay %f\n", a);
 }
