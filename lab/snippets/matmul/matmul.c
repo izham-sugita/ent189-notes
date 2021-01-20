@@ -8,17 +8,23 @@
 int main()
 {
 
+srand(time(0));
+
 float matrixA[M][N];
 float matrixB[N][M];
 float matrixC[M][M];
 
+printf("Matrix A\n");
 for(int i=0; i<M; ++i){
 for(int j=0; j<N; ++j){
-	matrixA[i][j] = 0.0;
-	if(i==j){
-		matrixA[i][j] = 1.0;
-		}
+	matrixA[i][j] = rand() /(float)RAND_MAX;
+printf("%f  ", matrixA[i][j]);
+//	matrixA[i][j] = 0.0;
+//	if(i==j){
+//		matrixA[i][j] = 1.0;
+//		}
 	}
+printf("\n");
 	}
 
 for(int i=0; i<M; ++i){
@@ -27,9 +33,9 @@ for(int j=0; j<M; ++j){
 	}
 	}
 
-printf("%d\n", RAND_MAX);
+//printf("%d\n", RAND_MAX);
+printf("Matrix B\n");
 float sum;
-srand(time(0));
 for(int i=0; i<N; ++i){
 for(int j=0; j<M; ++j){
 	matrixB[i][j] = rand()/(float)RAND_MAX;
