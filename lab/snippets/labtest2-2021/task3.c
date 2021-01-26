@@ -19,7 +19,13 @@ int main()
 
   //opening file
   FILE *fp;
-  fp = fopen("waterpump.txt", "w");
+
+//files mode: w = write only
+// w+ = write and read
+// r  = read only
+// r+ = read and write; slightly different from w+
+// a  = append, continue from the last line of the file
+  fp = fopen("waterpump.txt", "w"); 
   
   char ans = 'y';
   while(ans == 'y'){
@@ -35,6 +41,7 @@ int main()
 
   //classification
   display_pump(pname,pcode,ave, cat);
+
   fprintf(fp, "%s %d %f %f %f %f %s\n",
 	  pname, pcode, tpower[0], tpower[1], tpower[2], ave, cat);
   

@@ -13,7 +13,8 @@ int main()
   char ans = 'y';
   while(ans == 'y'){
   printf("Enter pump's name: \n");
-  scanf(" %s", pname);
+  //scanf(" %s", pname);
+scanf("%s", pname);
   printf("Enter pump's code: \n");
   scanf("%d", &pcode);
   for(int i=0; i<3; ++i){
