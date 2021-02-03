@@ -30,5 +30,6 @@ classA[i].matrix = matnumber;
 printf("Student[0] matrix is %d\n", classA[0].matrix);
 printf("Student[0] name is %s\n", classA[0].name);
 
+printf("%p\n", &classA[1].matrix);
 
 }
